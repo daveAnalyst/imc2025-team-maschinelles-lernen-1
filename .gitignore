@@ -174,3 +174,5 @@ cython_debug/
 .pypirc
 venv/
 data/image-matching-challenge-2025/
+# Ignore generated feature files
+data/features/
