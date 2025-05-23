@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+venv/
+data/image-matching-challenge-2025/
+# Ignore generated feature files
+data/features/
