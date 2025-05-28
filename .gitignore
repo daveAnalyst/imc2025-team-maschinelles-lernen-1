@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+/data/
 build/
 develop-eggs/
 dist/
@@ -172,24 +173,3 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-# Python virtual environment
-venv/
-
-# Kaggle competition data
-data/image-matching-challenge-2025/
-
-# Generated features and intermediate data products
-data/features/
-
-# Notebook checkpoints (optional, but good to ignore)
-.ipynb_checkpoints/
-
-# Python bytecode and cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# OS-specific files (examples)
-.DS_Store
-Thumbs.db
