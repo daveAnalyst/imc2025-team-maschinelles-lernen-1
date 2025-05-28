@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+/data/
 build/
 develop-eggs/
 dist/
@@ -175,3 +176,7 @@ cython_debug/
 data/image-matching-challenge-2025/
 data/features/
 venv/
+venv/
+data/image-matching-challenge-2025/
+# Ignore generated feature files
+data/features/
