@@ -321,20 +321,22 @@ def run_reconstruction(output_npz_path,
 # In[10]:
 
 #Dummy Test
-#First, create dataset that contains [dataset, scene, image_path]
-df = read_csv("train_labels.csv")
-df["image_path"] = df.apply(lambda row: os.path.join(os.getcwd(), "image-matching-challenge-2025", "train",  row["dataset"], row["image"]), axis=1)
 
-#secondly, load extractor and matcher
-device="cuda"
-output_npz_path = "./dino_embeddings/train_embeddings_vits.npz"
-dino_embedding = "./dino_embeddings/train_embeddings_vits.npz"
-extractor = ALIKED(max_num_keypoints=2048, resize = 1024).eval()
-feature_dir = Path(os.path.join(os.getcwd() , "feature_extraction"))
-matcher = LightGlue(features="aliked", depth_confidence=1.0, width_confidence=1.0).eval().to(device)
-
-#lastly, run all things at once
-run_reconstruction(output_npz_path, dino_embedding, "./image-matching-challenge-2025/train_labels.csv", "./image-matching-challenge-2025/train", df)
+if __name__ == "__main__":
+    #First, create dataset that contains [dataset, scene, image_path]
+    df = read_csv("train_labels.csv")
+    df["image_path"] = df.apply(lambda row: os.path.join(os.getcwd(), "image-matching-challenge-2025", "train",  row["dataset"], row["image"]), axis=1)
+    
+    #secondly, load extractor and matcher
+    device="cuda"
+    output_npz_path = "./dino_embeddings/train_embeddings_vits.npz"
+    dino_embedding = "./dino_embeddings/train_embeddings_vits.npz"
+    extractor = ALIKED(max_num_keypoints=2048, resize = 1024).eval()
+    feature_dir = Path(os.path.join(os.getcwd() , "feature_extraction"))
+    matcher = LightGlue(features="aliked", depth_confidence=1.0, width_confidence=1.0).eval().to(device)
+    
+    #lastly, run all things at once
+    run_reconstruction(output_npz_path, dino_embedding, "./image-matching-challenge-2025/train_labels.csv", "./image-matching-challenge-2025/train", df)
 
 
 
